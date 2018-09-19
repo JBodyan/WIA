@@ -15,17 +15,20 @@
 
         <TextView
             android:id="@+id/cityID"
+            android:layout_gravity="center"
+            android:textAlignment="center"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="30sp"
+            android:textSize="32sp"
             tools:text="City" />
 
         <TextView
             android:id="@+id/dateID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
+            android:layout_gravity="center"
+            android:textSize="26sp"
             tools:text="@sample/tools:date/ddmmyy" />
     </LinearLayout>
 
@@ -33,8 +36,11 @@
         android:id="@+id/tempID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
+        android:textSize="80sp"
         android:textStyle="bold"
         tools:text="20" />
+    <weather_informer_application.bk.wia.custom_views.LineView
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 
 </LinearLayout>

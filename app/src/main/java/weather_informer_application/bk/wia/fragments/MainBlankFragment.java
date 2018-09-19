@@ -14,7 +14,7 @@ public class MainBlankFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
 
-    private String mParam1;
+    private String panelText;
 
     public MainBlankFragment() {
         // Required empty public constructor
@@ -32,14 +32,16 @@ public class MainBlankFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
+            panelText = getArguments().getString(ARG_PARAM1);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_main_blank, container, false);
+        View view = inflater.inflate(R.layout.fragment_main_blank, container, false);
+
+        return view;
     }
 
 }
