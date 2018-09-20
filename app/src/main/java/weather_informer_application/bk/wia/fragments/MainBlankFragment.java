@@ -9,17 +9,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 import weather_informer_application.bk.wia.R;
 import weather_informer_application.bk.wia.adapters.WeatherAdapter;
 import weather_informer_application.bk.wia.api.App;
 import weather_informer_application.bk.wia.api.WeatherApi;
+import weather_informer_application.bk.wia.entities.WeatherList;
 
 
 public class MainBlankFragment extends Fragment {
@@ -61,28 +65,26 @@ public class MainBlankFragment extends Fragment {
             panelText = getArguments().getString(ARG_PARAM1);
         }
 
-        weatherApi.getWeather("709930")
+         Disposable disp = weatherApi.getWeather("709930")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(r->{
                     adapter.setWeather(r);
-                    Log.v("MyVerbose","Size = "+r.getList().size());
+                    Log.v("InfoAPI",adapter.getWeather().getCity().getName());
                 },e->{
                     e.printStackTrace();
-                    Log.e("MyError",e.getMessage());
+                    Log.v("InfoAPI",e.getMessage());
                 });
 
-        //city.setText(adapter.getWeather().getCity().getName());
+
+        ArrayList<WeatherList> weatherLists = (ArrayList<WeatherList>) adapter.getWeatherList();
+        for(WeatherList w: weatherLists){
+            Log.v("Cicle","TIME: " + new Date(w.getDt()));
+        }
         Date currentTime = Calendar.getInstance().getTime();
-        adapter.getWeatherToday();
-        Log.v("MyDate","Time = = = " + currentTime.getTime());
-//        WeatherList weatherList = adapter.getWeatherByDate();
-//        Log.v("MyVerbose",weatherList.getDtTxt());
-//        if(weatherList != null) {
-//            city.setText(adapter.getWeather().getCity().getName());
-//            temp.setText(weatherList.getMain().getTemp().toString());
-//            date.setText(weatherList.getDtTxt());
-//        }
+
+
+
 
     }
 
