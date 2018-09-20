@@ -20,7 +20,7 @@ import weather_informer_application.bk.wia.R;
 import weather_informer_application.bk.wia.adapters.WeatherAdapter;
 import weather_informer_application.bk.wia.api.App;
 import weather_informer_application.bk.wia.api.WeatherApi;
-import weather_informer_application.bk.wia.entities.WeatherList;
+
 
 public class MainBlankFragment extends Fragment {
 
@@ -33,7 +33,7 @@ public class MainBlankFragment extends Fragment {
 
     private void init(){
         adapter = new WeatherAdapter();
-        retrofit = App.get(App.getCtx()).getRetrofit();
+        retrofit = App.get(getContext()).getRetrofit();
         weatherApi = retrofit.create(WeatherApi.class);
     }
 
@@ -66,13 +66,15 @@ public class MainBlankFragment extends Fragment {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(r->{
                     adapter.setWeather(r);
+                    Log.v("MyVerbose","Size = "+r.getList().size());
                 },e->{
                     e.printStackTrace();
                     Log.e("MyError",e.getMessage());
                 });
 
-        city.setText(adapter.getWeather().getCity().getName());
+        //city.setText(adapter.getWeather().getCity().getName());
         Date currentTime = Calendar.getInstance().getTime();
+        adapter.getWeatherToday();
         Log.v("MyDate","Time = = = " + currentTime.getTime());
 //        WeatherList weatherList = adapter.getWeatherByDate();
 //        Log.v("MyVerbose",weatherList.getDtTxt());

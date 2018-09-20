@@ -10,20 +10,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class App extends Application{
     Retrofit retrofit = null;
 
-    public static void  setContext(Context context) {
-        ctx = context;
-    }
-
-    public static Context getCtx() {
-        return ctx;
-    }
-
-    static Context ctx;
-
     public static App get(Context ctx){
         return (App)ctx.getApplicationContext();
     }
-
 
     public Retrofit getRetrofit() {
         if(retrofit==null){
