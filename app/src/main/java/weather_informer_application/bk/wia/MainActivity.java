@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import weather_informer_application.bk.wia.adapters.CustomPagerAdapter;
+import weather_informer_application.bk.wia.api.App;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        App.setContext(this);
         adapter = new CustomPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tabPanel.setupWithViewPager(viewPager);

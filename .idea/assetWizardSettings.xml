@@ -23,7 +23,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="color" value="fff81c" />
+                                                <entry key="color" value="333333" />
                                                 <entry key="paddingPercent" value="10" />
                                               </map>
                                             </option>
@@ -35,7 +35,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_wb_sunny_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_settings_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -46,7 +46,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundColor" value="26c7ff" />
-                                      <entry key="outputName" value="ic_launcher_sun" />
+                                      <entry key="iconShape" value="NONE" />
+                                      <entry key="outputName" value="ic_launcher_setting" />
                                     </map>
                                   </option>
                                 </PersistentState>

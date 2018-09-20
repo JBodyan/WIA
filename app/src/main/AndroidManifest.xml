@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="weather_informer_application.bk.wia">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
+        android:name=".api.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_sun"
         android:label="@string/app_name"
