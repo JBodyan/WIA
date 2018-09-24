@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -34,16 +35,18 @@ public class LineView extends View {
         return (int) (px / Resources.getSystem().getDisplayMetrics().density);
     }
 
-    @SuppressLint("ResourceAsColor")
+
+    private Paint mPaint = new Paint();
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        float width  = canvas.getWidth();
-        float height = canvas.getHeight();
-        paint.setColor(R.color.colorBackground);
-        paint.setAlpha(1);
-        paint.setStrokeWidth(dpToPx(20));
-        canvas.drawPaint(paint);
-        canvas.drawLine(0,height/2,width,height/2,paint);
+        float w = getWidth();
+        float h = getHeight();
+
+        canvas.drawPaint(mPaint);
+        mPaint.setARGB(255,0,255,0);
+        mPaint.setStrokeWidth(10);
+        canvas.drawLine(0,h/2,w,h/2,mPaint);
+
     }
 }
